@@ -1,0 +1,259 @@
+/* Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Courier New', monospace;
+}
+
+/* GRUB Container */
+.grub-container {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  border: 2px solid #00FF00;
+  border-radius: 8px;
+  padding: 30px;
+  max-width: 800px;
+  width: 90%;
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+  animation: grubGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes grubGlow {
+  from { box-shadow: 0 0 30px rgba(0, 255, 0, 0.3); }
+  to { box-shadow: 0 0 50px rgba(0, 255, 0, 0.6); }
+}
+
+/* GRUB Header */
+.grub-header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #00FF00;
+  padding-bottom: 20px;
+}
+
+/* GRUB Logo */
+.grub-logo-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grub-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #00FF00;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+  animation: grubLogoGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes grubLogoGlow {
+  from { 
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+    transform: scale(1);
+  }
+  to { 
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.8);
+    transform: scale(1.05);
+  }
+}
+
+.grub-title {
+  color: #00FF00;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.grub-subtitle {
+  color: #FFFFFF;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* GRUB Menu */
+.grub-menu {
+  margin-bottom: 30px;
+}
+
+.grub-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  color: #FFFFFF;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.grub-menu-item.active {
+  color: #00FF00;
+  background: rgba(0, 255, 0, 0.1);
+  padding-left: 10px;
+  border-radius: 4px;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.grub-pointer {
+  margin-right: 15px;
+  font-size: 16px;
+  animation: pointerBlink 1s infinite;
+}
+
+@keyframes pointerBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+.grub-text {
+  flex: 1;
+}
+
+/* Loading Progress */
+.loading-progress {
+  margin-bottom: 30px;
+}
+
+.progress-bar {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #00FF00;
+  border-radius: 4px;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, #00FF00, #00CC00);
+  height: 100%;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: progressShine 1.5s infinite;
+}
+
+@keyframes progressShine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.progress-text {
+  text-align: center;
+  color: #00FF00;
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* Loading Status */
+.loading-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.status-text {
+  color: #00FF00;
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+}
+
+.cursor-blink {
+  animation: cursorBlink 1s infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.status-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #333;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #00FF00;
+  animation: dotPulse 0.6s infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+/* GRUB Footer */
+.grub-footer {
+  border-top: 1px solid rgba(0, 255, 0, 0.3);
+  padding-top: 15px;
+}
+
+.grub-help {
+  color: #888;
+  font-size: 11px;
+  margin-bottom: 5px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grub-container {
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  .grub-logo {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #00FF00;
+  }
+  
+  .grub-title {
+    font-size: 16px;
+  }
+  
+  .grub-subtitle {
+    font-size: 12px;
+  }
+  
+  .grub-text {
+    font-size: 12px;
+  }
+  
+  .status-text {
+    font-size: 12px;
+  }
+}
